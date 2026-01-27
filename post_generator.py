@@ -1,6 +1,6 @@
+import os
 from datetime import datetime
 import random
-import os
 
 os.makedirs("_posts", exist_ok=True)
 
@@ -40,30 +40,29 @@ topics = [
     ("Erros comuns em pipelines CI/CD", ["devops","ci"]),
 ]
 
-now = datetime.now()
+today = datetime.now()
+date_str = today.strftime("%Y-%m-%d")
+title = random.choice(topics)
 
-for i in range(2):  # dois posts por execução
-    title, tags = random.choice(topics)
-    filename = f"_posts/{now.strftime('%Y-%m-%d')}-{now.strftime('%H%M')}-{i}.md"
+# Nome do arquivo no padrão que o Jekyll exige
+filename = f"_posts/{date_str}-post-{random.randint(1000,9999)}.md"
 
-    content = f"""---
+content = f"""---
+layout: post
 title: "{title}"
-description: "Discussão técnica sobre {title.lower()}"
-tags: {tags}
+date: {date_str}
+categories: [Tecnologia, IA]
 ---
 
-## Contexto
-Este artigo faz parte de um **blog técnico totalmente automatizado**, focado em tecnologia aplicada ao mundo real.
+Este artigo foi gerado automaticamente por um sistema em Python.
 
-## O problema real
-Na prática, decisões técnicas envolvem custo, manutenção, segurança e impacto a longo prazo.
+O objetivo do projeto é demonstrar automação de geração de conteúdo,
+integração com GitHub Actions e publicação contínua usando Jekyll.
 
-## Abordagem técnica
-Aqui o foco é **engenharia de software**, não modismo ou hype.
-
-## Conclusão
-Boas decisões técnicas surgem de entendimento profundo, não de tendências passageiras.
+Isso simula um blog técnico que se mantém atualizado de forma autônoma.
 """
 
-    with open(filename, "w", encoding="utf-8") as f:
-        f.write(content)
+with open(filename, "w", encoding="utf-8") as f:
+    f.write(content)
+
+print(f"Post criado: {filename}")
