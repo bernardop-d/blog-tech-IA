@@ -1,11 +1,15 @@
-
 ---
 layout: default
 title: Home
 ---
-<h2>Últimos Posts</h2>
+
+<h1>Últimos Posts</h1>
+
 <ul>
-{% for post in site.posts limit:10 %}
-  <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-{% endfor %}
+  {% for post in site.posts limit:10 %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a><br>
+      <small>{{ post.date | date: "%d/%m/%Y" }}</small>
+    </li>
+  {% endfor %}
 </ul>
