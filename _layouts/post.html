@@ -1,0 +1,14 @@
+
+---
+layout: default
+---
+<article>
+  <h1>{{ page.title }}</h1>
+  <p><small>{{ page.date | date: "%d/%m/%Y" }}</small></p>
+  {{ content }}
+  <p><strong>Tags:</strong>
+    {% for tag in page.tags %}
+      <a href="/tags.html#{{ tag }}">{{ tag }}</a>
+    {% endfor %}
+  </p>
+</article>
