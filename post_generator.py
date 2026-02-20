@@ -42,16 +42,23 @@ topics = [
 
 today = datetime.now()
 date_str = today.strftime("%Y-%m-%d")
-title = random.choice(topics)
 
-# Nome do arquivo no padrão que o Jekyll exige
+# CORREÇÃO AQUI: Separando o título e as tags
+escolha = random.choice(topics)
+post_title = escolha[0]
+post_tags = escolha[1]
+
+# Formatando as tags para o Jekyll ler corretamente: ["ia", "engenharia"]
+tags_formatadas = "[" + ", ".join(f'"{tag}"' for tag in post_tags) + "]"
+
 filename = f"_posts/{date_str}-post-{random.randint(1000,9999)}.md"
 
 content = f"""---
 layout: post
-title: "{title}"
+title: "{post_title}"
 date: {date_str}
 categories: [Tecnologia, IA]
+tags: {tags_formatadas}
 ---
 
 Este artigo foi gerado automaticamente por um sistema em Python.
