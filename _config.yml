@@ -1,9 +1,5 @@
-
-title: Meu Blog Tech Autônomo
-description: Blog técnico automatizado sobre tecnologia, backend e IA.
-url: https://bernardipp-d.github.io/techmanIAco
-baseurl: ""
-theme: minima
-plugins:
-  - jekyll-seo-tag
-markdown: kramdown
+title: Blog Tech IA
+description: Posts automáticos sobre IA
+theme: jekyll-theme-minimal
+url: "https://bernardop-d.github.io"
+baseurl: "/blog-tech-IA"
